@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./listcreate.css">
+</head>
+<body>
+    <h1><span>메모장</span></h1>
+    <form method="post">
+        <fieldset>
+            <legend class="legend">메모</legend>
+            <table>
+                <tr>
+                    <td><label>제목</label></td>
+                    <td><input class="title"  type="text" name="title"></td>
+                </tr>
+                <tr>
+                    <td><label>내용</label></td>
+                    <td><input class="content" type="text" name="content"></td>
+                </tr>
+                <tr>
+                    <td><label>날짜</label></td>
+                    <td><input type="text" name="date" placeholder="저장을 누를 시 현재 시간"></td>
+                </tr>
+            </table>
+        </fieldset>
+        <input class="submit" type="submit" value="저장">
+    </form>
+</body>
+</html>

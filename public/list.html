@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./list.css">
+</head>
+<body>
+    <h1><span>메모 리스트</span></h1>
+    <table width="100%" border="1px">
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>내용</th>
+            <th>날짜</th>
+            <th>수정</th>
+            <th>삭제</th>
+        </tr>
+        <% data.forEach(function (list, index) { %>
+        <tr>
+            <td><%= list.number %></td>
+            <td><%= list.title %></td>
+            <td><%= list.content %></td>
+            <td><%= list.date %></td>
+            <td><a class="modify" href="/modify/<%= list.number %>">수정</a></td>
+            <td><a class="delete" href="/delete/<%= list.number %>">삭제</a></td>
+        </tr>
+        <% }); %>
+    </table>
+    <form action="/create" method="get">
+        <button type="submit">메모 쓰기</button>
+     </form>
+</body>
+</html>
