@@ -18,7 +18,7 @@ app.use(express.static(`${__dirname}/public`));
 
 app.get('/',(request,response) => {
     fs.readFile('public/list.html','utf-8',(error,data) =>{
-        connection.query('SELECT * from memo', (error, results, fields) => {
+        connection.query('SELECT * from memo ORDER BY date DESC', (error, results, fields) => {
             if (error) throw error;
             response.send(ejs.render(data,{
                 data:results,
@@ -39,8 +39,8 @@ app.get('/create',(request, response) => {
 app.post('/create', (request, response) => {
     const body = request.body;
     console.log(body);
-    connection.query('INSERT INTO memo (title, content, date) VALUE (?, ?, now())',
-    [body.title, body.content, body.date], () => {
+    connection.query('INSERT INTO memo (title, content, date) VALUES (?, ?, now())',
+    [body.title, body.content], () => {
         response.redirect('/');
     });
 });
@@ -86,7 +86,7 @@ app.get('/delete/:id', (request, response) => {
 //     if (error) throw error;
 //     console.log(results);
 // });
-
+//..
 
 app.listen(3000, () => {
     console.log('Server is running port 3000!');
